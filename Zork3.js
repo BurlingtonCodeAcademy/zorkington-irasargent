@@ -86,6 +86,7 @@ let mainStreetFunction = async function(){
         console.log(currentRoom.door.locked)
     }else if (answer.includes('open') && currentRoom.door.status.includes('open')){
         console.log(currentRoom.door.unlocked)
+        currentRoom.door.status = 'locked';
         currentRoom = rooms.room2;
         player.location = currentRoom;
         enterRoom();
@@ -117,9 +118,9 @@ let foyerFunction = async function(){
         player.location = currentRoom;
         enterRoom();
 
-   // } else if (answer.toLowerCase(answer.includes('seven days' || 'paper'))){
-     //   console.log(currentRoom.sevenDays);
-       // player.inventory = 'a recent copy of the Seven Days newspaper';
+    } else if (answer.includes('seven days') || answer.includes('paper')){
+        console.log(currentRoom.sevenDays);
+        player.inventory = 'a recent copy of the Seven Days newspaper';
 
     } else if (answer.includes('back') || answer.includes('outside')){
         console.log(currentRoom.goBack);
